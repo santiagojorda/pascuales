@@ -1,6 +1,7 @@
 import re
 
-NOMBRE_DEL_ARCHIVO = 'chat_pascual.txt'
+ARCHIVO_ENTRADA = 'chat_pascual.txt'
+ARCHIVO_SALIDA = 'lista_bds.txt'
 
 def encontrar_bds(archivo_path):
     with open(archivo_path, 'r', encoding='utf-8') as file:
@@ -17,11 +18,14 @@ def encontrar_bds(archivo_path):
 
 def main():
     try:
-        bds = encontrar_bds(NOMBRE_DEL_ARCHIVO)
+        bds = encontrar_bds(ARCHIVO_ENTRADA)
         if bds:
-            print("Bds encontrados:")
-            for bd in bds:
-                print(f"{bd[0]} {bd[1]}")
+            with open(ARCHIVO_SALIDA, 'w', encoding='utf-8') as output_file:
+                output_file.write("Bds encontrados:\n")
+                print("Bds encontrados:")
+                for bd in bds:
+                    print(f"{bd[0]} {bd[1]}")
+                    output_file.write(f"{bd[0]} {bd[1]}\n")
         else:
             print("No se encontraron bds.")
     except UnicodeDecodeError as e:
