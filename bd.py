@@ -1,6 +1,6 @@
 import re
 
-NOMBRE_DEL_ARCHIVO = 'chat_pascuales.txt'
+NOMBRE_DEL_ARCHIVO = 'chat_pascual.txt'
 
 def encontrar_bds(archivo_path):
     with open(archivo_path, 'r', encoding='utf-8') as file:
